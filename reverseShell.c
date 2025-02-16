@@ -1,3 +1,8 @@
+/*Windows automatically redirects output to the socket instead of printing it on the local terminal.
+cmd.exe treats the socket as if it were a console.*/
+/*Even though there's no explicit send() function in your script,
+the reason stdout and stderr are sent to the server is because of WinAPI's I/O redirection using STARTF_USESTDHANDLES.*/
+
 #include <stdio.h>
 #include <winsock2.h>
 #include <Windows.h>
